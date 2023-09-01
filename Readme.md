@@ -1,6 +1,6 @@
-# scale, cluster
+# verificar sobre(scale, cluster)
 
-# Criando um load balanc
+# Criando um load balance com nginx
 
 ## Criar um container do NGINX
 
