@@ -1,0 +1,26 @@
+version: "3"
+services:
+  nginx:
+    image: nginx:1.17.6-alpine
+    container_name: nginx
+    volumes:
+      - ./nginx/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d:/etc/nginx/conf.d/
+    ports:
+      - "8000:80"
+
+  node-nginx1:
+    image: nginx:1.17.6-alpine
+    container_name: load_balance_1
+    volumes:
+      - ./nginx/node-nginx1/html:/usr/share/nginx/html/
+    ports:
+      - "80"
+
+  node-nginx2:
+    image: nginx:1.17.6-alpine
+    container_name: load_balance_2
+    volumes:
+      - ./nginx/node-nginx2/html:/usr/share/nginx/html/
+    ports:
+      - "80"
